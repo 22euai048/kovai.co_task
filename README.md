@@ -11,6 +11,16 @@ School: Dedicated journeys corresponding to school travel schedules.
 Other: Any other types of public transport services in the data.
 Each data record includes the date and integer counts of passengers for these service types.
 
+PROCESS:
+>>Understanding the Problem & Dataset
+>>Choosing the Right Model
+>>Data Preparation
+>>Model Fitting
+>>Forecasting
+>>Deriving Insights
+>>Visualization
+>>Operational Interpretation
+
 Why ARIMA is used here
 >>DAILY TIME SERIES → ARIMA's specialty
 >> DAY-TO-DAY DEPENDENCIES → Captured by AR(1) term (p=1)
@@ -20,12 +30,9 @@ Why ARIMA is used here
 >> SERVICE-SPECIFIC PATTERNS → Separate models per service
 
 ARIMA BREAKDOWN
-| Parameter | Role                             | Why for Transport Data           |
-| --------- | -------------------------------- | -------------------------------- |
-| p=1       | Uses yesterday's passengerCHANGE | Daily momentum (Mon affects Tue) |
-| d=1       | Removes steady growth/decline    | Focus on daily fluctuations      |
-| q=1       | Smooths shocks from previous day | Handles strikes, road closures   
-
+p = 1: Uses yesterday’s passenger change to capture daily momentum (e.g., Monday’s demand affecting Tuesday).
+d = 1: Removes steady growth or decline, allowing the model to focus on daily fluctuations.
+q = 1: Smooths shocks from the previous day, handling irregular events like strikes or road closures.
 
  WHAT ARIMA DOES HERE? 
 1. FORECASTS → Predicts next 7 days per service
@@ -33,14 +40,6 @@ ARIMA BREAKDOWN
 3. SMOOTH NOISE → Ignores random shocks
 4. GIVE INSIGHTS → Reveals business truths
 
-INSIGHTS:
-| Insight        | ARIMA Gives     | What It Means                |
-|                |                 |                              |
-| Predictability | Small residuals | "Rapid = 92% predictable"    |
-| Shock Memory   | AR(1)=0.75      | "Strike affects 3 days"      |
-| Pressure       | Forecast=32k    | "Busier than 95% of history" |
-| Mode Switch    | Rapid↓ Local↑   | "Neighborhood trips rising"  |
-| Uncertainty    | Wide CI bands   | "School forecast ±25%"       |
 
 
 INSIGHT 1:
@@ -55,8 +54,8 @@ The vrtical list simply ranks each service, and the horizontal distance shows ho
 INSIGHT 2:
 Different services have different levels of predictability.
 
-Some services run with steady patterns every day — these are easy for ARIMA to forecast.
-Some services have lots of ups and downs — these are hard for the model to predict.
+Some services run with steady patterns every day : these are easy for ARIMA to forecast.
+Some services have lots of ups and downs : these are hard for the model to predict.
 
 INSIGHT 3:
 Graph compares how long each service “remembers” a shock — a sudden spike or drop in demand.
