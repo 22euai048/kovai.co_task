@@ -22,11 +22,17 @@ PROCESS:
 >>Operational Interpretation
 
 Why ARIMA is used here
+
 >>DAILY TIME SERIES → ARIMA's specialty
+
 >> DAY-TO-DAY DEPENDENCIES → Captured by AR(1) term (p=1)
+
 >>TRENDS (school terms, seasonal) → Handled by differencing (d=1)
+
 >> RANDOM SHOCKS (strikes, weather) → Smoothed by MA(1) term (q=1)
+
 >> 7-DAY OPERATIONAL HORIZON → ARIMA's sweet spot
+
 >> SERVICE-SPECIFIC PATTERNS → Separate models per service
 
 ARIMA BREAKDOWN
@@ -58,7 +64,7 @@ Some services run with steady patterns every day : these are easy for ARIMA to f
 Some services have lots of ups and downs : these are hard for the model to predict.
 
 INSIGHT 3:
-Graph compares how long each service “remembers” a shock — a sudden spike or drop in demand.
+Graph compares how long each service “remembers” a shock: a sudden spike or drop in demand.
 Each service has:
 A grey dot = No memory baseline at 0
 A purple dot = its actual AR(1) shock memory value
