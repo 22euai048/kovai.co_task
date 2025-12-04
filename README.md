@@ -1,5 +1,7 @@
 Public Transport Passenger Forecasting
+
 Dataset Overview
+
 This dataset contains daily passenger journey counts segmented by service types over multiple years. It records how many passengers used each of the following public transport services on each day:
 Local Route: Serves local neighborhoods with frequent stops.
 Light Rail: Medium distance urban rail service.
@@ -25,7 +27,7 @@ ARIMA BREAKDOWN
 | q=1       | Smooths shocks from previous day | Handles strikes, road closures   
 
 
- wHAT ARIMA DOES HERE? 
+ WHAT ARIMA DOES HERE? 
 1. FORECASTS → Predicts next 7 days per service
 2. LEARN PATTERNS → Finds daily/weekend trends  
 3. SMOOTH NOISE → Ignores random shocks
